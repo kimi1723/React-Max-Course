@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Forms/src/components/SimpleInput.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1694611537647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1694611741375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,18 @@\n import { useRef } from \"react\";\n \n const SimpleInput = (props) => {\n+  const name =  useRef();\n+\n+  const submitHandler = (e) => {\n+    e.preventDefault();\n+    console.log(name);\n+  }\n   return (\n-    <form>\n+    <form onSubmit={submitHandler}>\n       <div className=\"form-control\">\n         <label htmlFor=\"name\">Your Name</label>\n-        <input type=\"text\" id=\"name\" />\n+        <input usetype=\"text\" id=\"name\" ref={name}/>\n       </div>\n       <div className=\"form-actions\">\n         <button>Submit</button>\n       </div>\n"
+                },
+                {
+                    "date": 1694611754859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { useRef } from \"react\";\n \n const SimpleInput = (props) => {\n-  const name = useRef();\n+  const name = useRef().current.value;\n \n   const submitHandler = (e) => {\n     e.preventDefault();\n     console.log(name);\n"
+                }
+            ],
+            "date": 1694611537647,
+            "name": "Commit-0",
+            "content": "import {useRef} from 'react';\n\nconst SimpleInput = (props) => {\n\n  return (\n    <form>\n      <div className='form-control'>\n        <label htmlFor='name'>Your Name</label>\n        <input type='text' id='name' />\n      </div>\n      <div className=\"form-actions\">\n        <button>Submit</button>\n      </div>\n    </form>\n  );\n};\n\nexport default SimpleInput;\n"
+        }
+    ]
+}
