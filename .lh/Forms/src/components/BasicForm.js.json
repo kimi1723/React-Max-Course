@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Forms/src/components/BasicForm.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1694698508552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1694698787953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,18 +6,18 @@\n     <form>\n       <div className=\"control-group\">\n         <div className=\"form-control\">\n           <label htmlFor=\"name\">First Name</label>\n-          <input type=\"text\" id=\"name\" />\n+        <NameInput type=\"text\" id=\"name\"/>\n         </div>\n         <div className=\"form-control\">\n           <label htmlFor=\"name\">Last Name</label>\n           <input type=\"text\" id=\"name\" />\n         </div>\n       </div>\n       <div className=\"form-control\">\n         <label htmlFor=\"name\">E-Mail Address</label>\n-        <input type=\"text\" id=\"name\" />\n+        <EmailInput type=\"email\" id=\"email\">\n       </div>\n       <div className=\"form-actions\">\n         <button>Submit</button>\n       </div>\n"
+                },
+                {
+                    "date": 1694698796213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         </div>\n       </div>\n       <div className=\"form-control\">\n         <label htmlFor=\"name\">E-Mail Address</label>\n-        <EmailInput type=\"email\" id=\"email\">\n+        <EmailInput type=\"email\" id=\"email\"/>\n       </div>\n       <div className=\"form-actions\">\n         <button>Submit</button>\n       </div>\n"
+                }
+            ],
+            "date": 1694698508552,
+            "name": "Commit-0",
+            "content": "import EmailInput from \"./EmailInput\";\nimport NameInput from './NameInput'\nconst BasicForm = (props) => {\n  return (\n    <form>\n      <div className='control-group'>\n        <div className='form-control'>\n          <label htmlFor='name'>First Name</label>\n          <input type='text' id='name' />\n        </div>\n        <div className='form-control'>\n          <label htmlFor='name'>Last Name</label>\n          <input type='text' id='name' />\n        </div>\n      </div>\n      <div className='form-control'>\n        <label htmlFor='name'>E-Mail Address</label>\n        <input type='text' id='name' />\n      </div>\n      <div className='form-actions'>\n        <button>Submit</button>\n      </div>\n    </form>\n  );\n};\n\nexport default BasicForm;\n"
+        }
+    ]
+}

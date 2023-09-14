@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Forms/src/components/EmailInput.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1694682033417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1694682078122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n import { useState } from \"react\";\r\n \r\n-const EmailInput = (props) => {};\r\n+const EmailInput = (props) => {\r\n+    const [enteredEmail, setEnteredEmail] = useState('')\r\n+};\r\n \r\n export default EmailInput;\r\n"
+                },
+                {
+                    "date": 1694682430497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,11 @@\n import { useState } from \"react\";\r\n+import Input\r\n \r\n const EmailInput = (props) => {\r\n   const [enteredEmail, setEnteredEmail] = useState(\"\");\r\n+\r\n+  return (<Input>\r\n+  </Input>)\r\n };\r\n \r\n export default EmailInput;\r\n"
+                }
+            ],
+            "date": 1694682033417,
+            "name": "Commit-0",
+            "content": "import { useState } from \"react\";\r\n\r\nconst EmailInput = props => {\r\n\r\n}\r\n\r\nexport default EmailInput;"
+        }
+    ]
+}

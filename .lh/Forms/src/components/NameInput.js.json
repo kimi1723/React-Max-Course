@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Forms/src/components/NameInput.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1694698496385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1694700089823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,16 @@\n-const NameInput = (e) => {};\r\n+import { useState } from \"react\";\r\n \r\n+const NameInput = ({type, id}) => {\r\n+\r\n+    return (\r\n+      <input\r\n+        type={type}\r\n+        id={id}\r\n+        onBlur={nameInputBlurHandler}\r\n+        onChange={nameInputChangeHandler}\r\n+        value={enteredName}\r\n+      />\r\n+    );\r\n+};\r\n+\r\n export default NameInput;\r\n"
+                },
+                {
+                    "date": 1694700109068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,20 @@\n import { useState } from \"react\";\r\n \r\n const NameInput = ({ type, id }) => {\r\n   return (\r\n-    <input\r\n-      type={type}\r\n-      id={id}\r\n-      onBlur={nameInputBlurHandler}\r\n-      onChange={nameInputChangeHandler}\r\n-      value={enteredName}\r\n-    />\r\n+    <>\r\n+      <input\r\n+        type={type}\r\n+        id={id}\r\n+        onBlur={nameInputBlurHandler}\r\n+        onChange={nameInputChangeHandler}\r\n+        value={enteredName}\r\n+      />\r\n+      {nameInputIsInvalid && (\r\n+        <p className=\"error-text\">Name must not be empty.</p>\r\n+      )}\r\n+    </>\r\n   );\r\n };\r\n \r\n export default NameInput;\r\n"
+                }
+            ],
+            "date": 1694698496385,
+            "name": "Commit-0",
+            "content": "const NameInput = e => {\r\n\r\n}\r\n\r\nexport default NameInput;"
+        }
+    ]
+}
