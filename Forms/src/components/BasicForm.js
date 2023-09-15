@@ -1,19 +1,7 @@
-import { useState } from "react";
-import EmailInput from "./EmailInput";
-import NameInput from "./NameInput";
-import SurnameInput from "./SurnameInput";
+import InputBlock from "./Input";
 
 const BasicForm = () => {
-  const [nameInputIsInvalid, setNameInputIsInvalid] = useState(false);
-  const [emailInputIsInvalid, setEmailInputIsInvalid] = useState(false);
-  const [surnameInputIsInvalid, setSurnameInputIsInvalid] = useState(false);
-  const [resetBooleanValue, setResetBooleanValue] = useState(false);
-
   let nameValue, surnameValue, emailValue;
-
-  const resetBooleanValueHandler = (e) => {
-    setResetBooleanValue(false);
-  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -35,81 +23,41 @@ const BasicForm = () => {
     Name: ${data.name}
     Surname: ${data.surname}
     E-mail: ${data.email}`);
-
-    setResetBooleanValue(true);
   };
-
-  const checkNameValidation = (isInvalid) => {
-    setNameInputIsInvalid(isInvalid);
-  };
-
-  const checkSurnameValidation = (isInvalid) => {
-    setSurnameInputIsInvalid(isInvalid);
-  };
-
-  const checkEmailValidation = (isInvalid) => {
-    setEmailInputIsInvalid(isInvalid);
-  };
-
-  const getNameValue = (value) => {
-    nameValue = value;
-  };
-
-  const getSurnameValue = (value) => {
-    surnameValue = value;
-  };
-
-  const getEmailValue = (value) => {
-    emailValue = value;
-  };
-
-  const nameInputClasses = nameInputIsInvalid
-    ? "form-control invalid"
-    : "form-control";
-
-  const emailInputClasses = emailInputIsInvalid
-    ? "form-control invalid"
-    : "form-control";
-
-  const surnameInputClasses = surnameInputIsInvalid
-    ? "form-control invalid"
-    : "form-control";
 
   return (
     <form onSubmit={submitHandler}>
       <div className="control-group">
-        <div className={nameInputClasses}>
-          <label htmlFor="name">First Name</label>
-          <NameInput
-            type="text"
-            id="name"
-            isInvalid={checkNameValidation}
-            value={getNameValue}
-            resetBoolean={resetBooleanValue}
-            resetBooleanValueHandler={resetBooleanValueHandler}
-          />
-        </div>
-        <div className={surnameInputClasses}>
-          <label htmlFor="surname">Last Name</label>
-          <SurnameInput
-            type="text"
-            id="surname"
-            isInvalid={checkSurnameValidation}
-            value={getSurnameValue}
-            resetBoolean={resetBooleanValue}
-          />
-        </div>
-      </div>
-      <div className={emailInputClasses}>
-        <label htmlFor="name">E-Mail Address</label>
-        <EmailInput
-          type="email"
-          id="email"
-          isInvalid={checkEmailValidation}
-          value={getEmailValue}
-          resetBoolean={resetBooleanValue}
+        <InputBlock
+          validationFunction={(nameValue) => nameValue.trim() !== ""}
+          label="First name"
+          type="text"
+          id="name"
+          errorText={"Name must not be empty."}
+        />
+
+        <InputBlock
+          validationFunction={(surnameValue) => surnameValue.trim() !== ""}
+          label="Surname"
+          type="text"
+          id="surname"
+          errorText={"Surname must not be empty."}
         />
       </div>
+      <InputBlock
+        validationFunction={(emailValue) => {
+          const regEx = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/gi);
+
+          const emailIsValid = regEx.test(emailValue);
+
+          return emailIsValid;
+        }}
+        label="E-mail address"
+        type="email"
+        id="email"
+        errorText={"Please enter a valid e-mail address."}
+      />
+
       <div className="form-actions">
         <button>Submit</button>
       </div>

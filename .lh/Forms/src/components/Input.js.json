@@ -3,11 +3,23 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1694698423742,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1694786466025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import { useState } from \"react\";\r\n+import useInput from \"../hooks/use-input\";\r\n+\r\n+const Input = () => {\r\n+    const {value: enteredValue, isValid: enteredValueIsValid,\r\n+    hasError: valueHasError,\r\n+valueChangeHandler, inputBlurHandler} = useInput(fun)\r\n+}\r\n+\r\n+export default Input;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1694786778541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,16 @@\n import { useState } from \"react\";\r\n import useInput from \"../hooks/use-input\";\r\n \r\n-const Input = () => {\r\n+const Input = ({validationFunction, type, id}) => {\r\n   const {\r\n     value: enteredValue,\r\n     isValid: enteredValueIsValid,\r\n     hasError: valueHasError,\r\n     valueChangeHandler,\r\n     inputBlurHandler,\r\n-  } = useInput(fun);\r\n+  } = useInput(validationFunction);\r\n+\r\n+  return <input type={type} id={id} />\r\n };\r\n \r\n export default Input;\r\n"
+                },
+                {
+                    "date": 1694787195803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,25 @@\n import { useState } from \"react\";\r\n import useInput from \"../hooks/use-input\";\r\n \r\n-const Input = ({ validationFunction, type, id }) => {\r\n+const Input = ({ validationFunction, type, id, errorText }) => {\r\n   const {\r\n     value: enteredValue,\r\n     isValid: enteredValueIsValid,\r\n-    hasError: valueHasError,\r\n+    hasError,\r\n     valueChangeHandler,\r\n     inputBlurHandler,\r\n   } = useInput(validationFunction);\r\n \r\n-  return <input type={type} id={id} />;\r\n+\r\n+\r\n+  return (\r\n+    <>\r\n+      <input type={type} id={id} />\r\n+      {hasError && (\r\n+        <p className=\"error-text\">{errorText}</p>\r\n+      )}\r\n+    </>\r\n+  );\r\n };\r\n \r\n export default Input;\r\n"
                 }
             ],
             "date": 1694698423742,

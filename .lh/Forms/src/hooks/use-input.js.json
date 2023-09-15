@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Forms/src/hooks/use-input.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1694785023235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1694785071838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,15 @@\n import { useState } from \"react\";\r\n \r\n-const UseInput = () => {\r\n+const UseInput = (validateValue) => {\r\n   const [enteredValue, setEnteredValue] = useState(\"\");\r\n   const [isTouched, setIsTouched] = useState(false);\r\n \r\n-  const valueIsValid = enteredValue.trim() !== \"\";\r\n+  const valueIsValid = validateValue(enteredValue);\r\n   const hasError = !valueIsValid && isTouched;\r\n+\r\n+  return {\r\n+    value:enteredValue, hasError\r\n+  }\r\n };\r\n \r\n export default UseInput;\r\n"
+                },
+                {
+                    "date": 1694785176619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,24 @@\n \r\n   const valueIsValid = validateValue(enteredValue);\r\n   const hasError = !valueIsValid && isTouched;\r\n \r\n+   const valueChangeHandler = (e) => {\r\n+     setEnteredValue(e.target.value);\r\n+     setIsTouched(true);\r\n+    //  isInvalid(e.target.value.trim() === \"\");\r\n+   };\r\n+\r\n+   const inputBlurHandler = () => {\r\n+     setIsTouched(true);\r\n+    //  isInvalid(!enteredNameIsValid);\r\n+   };\r\n+\r\n   return {\r\n     value: enteredValue,\r\n     hasError,\r\n+    valueChangeHandler,\r\n+    inputBlurHandler\r\n   };\r\n };\r\n \r\n export default UseInput;\r\n"
+                }
+            ],
+            "date": 1694785023235,
+            "name": "Commit-0",
+            "content": "import { useState } from \"react\";\r\n\r\nconst UseInput = () => {\r\n    const [enteredValue, setEnteredValue] = useState(\"\");\r\n    const [isTouched, setIsTouched] = useState(false);\r\n\r\n     const valueIsValid = enteredValue.trim() !== \"\";\r\n     const hasError = !valueIsValid && isTouched;\r\n\r\n}\r\n\r\nexport default UseInput;"
+        }
+    ]
+}

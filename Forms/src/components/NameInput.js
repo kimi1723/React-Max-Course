@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import useInput from "../hooks/use-input";
 
 const NameInput = ({
   type,
@@ -8,45 +9,37 @@ const NameInput = ({
   resetBooleanValueHandler,
   resetBoolean,
 }) => {
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+  const {
+    value: enteredName,
+    isValid: enteredNameIsValid,
+    hasError: nameInputHasError,
+    valueChangeHandler: nameChangedHandler,
+    inputBlurHandler: nameBlurHandler,
+    reset: resetNameInput,
+  } = useInput((value) => value.trim !== "");
 
-  const enteredNameIsValid = enteredName.trim() !== "";
-  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+  // useEffect(() => {
+  //   if (enteredNameIsValid && enteredNameTouched) {
+  //     value(enteredName);
+  //   }
 
-  useEffect(() => {
-    if (enteredNameIsValid && enteredNameTouched) {
-      value(enteredName);
-    }
-
-    if (resetBoolean === true) {
-      setEnteredName("");
-      setEnteredNameTouched(false);
-      resetBooleanValueHandler(false);
-    }
-  });
-
-  const nameInputChangeHandler = (e) => {
-    setEnteredName(e.target.value);
-    setEnteredNameTouched(true);
-    isInvalid(e.target.value.trim() === "");
-  };
-
-  const nameInputBlurHandler = () => {
-    setEnteredNameTouched(true);
-    isInvalid(!enteredNameIsValid);
-  };
+  //   if (resetBoolean === true) {
+  //     setEnteredName("");
+  //     setEnteredNameTouched(false);
+  //     resetBooleanValueHandler(false);
+  //   }
+  // });
 
   return (
     <>
       <input
         type={type}
         id={id}
-        onBlur={nameInputBlurHandler}
-        onChange={nameInputChangeHandler}
+        onBlur={nameBlurHandler}
+        onChange={nameChangedHandler}
         value={enteredName}
       />
-      {nameInputIsInvalid && (
+      {nameInputHasError && (
         <p className="error-text">Name must not be empty.</p>
       )}
     </>
