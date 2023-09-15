@@ -1,18 +1,33 @@
-import { useState } from "react";
-import Input from "./Input";
+import { useState, useEffect } from "react";
 
-const EmailInput = (props) => {
+const EmailInput = ({ type, id, isInvalid }) => {
   const [enteredEmail, setEnteredEmail] = useState("");
-  const [emailInputIsInvalid, setEmailInputIsInvalid] = useState(false);
-  const emailInputChangeHandler = (e) => {};
+  const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
 
-  const emailInputBlurHandler = () => {};
+  const regEx = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/gi);
+
+  const enteredEmailIsValid = regEx.test(enteredEmail);
+  const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
+
+  useEffect(() => {
+    isInvalid(emailInputIsInvalid);
+  });
+
+  const emailInputChangeHandler = (e) => {
+    setEnteredEmail(e.target.value);
+    setEnteredEmailTouched(true);
+  };
+
+  const emailInputBlurHandler = () => {
+    setEnteredEmailTouched(true);
+    isInvalid(emailInputIsInvalid);
+  };
 
   return (
     <>
-      <Input
-        usetype="text"
-        id="email"
+      <input
+        type={type}
+        id={id}
         onChange={emailInputChangeHandler}
         onBlur={emailInputBlurHandler}
         value={enteredEmail}

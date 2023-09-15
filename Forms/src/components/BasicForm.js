@@ -4,6 +4,7 @@ import NameInput from "./NameInput";
 
 const BasicForm = (props) => {
   const submitHandler = (e) => {
+    e.preventDefault();
     // setEnteredName("");
     // setEnteredNameTouched(false);
   };
@@ -12,6 +13,10 @@ const BasicForm = (props) => {
 
   const checkNameValidation = (isInvalid) => {
     setNameInputIsInvalid(isInvalid);
+  };
+
+  const checkEmailValidation = (isInvalid) => {
+    setEmailInputIsInvalid(isInvalid);
   };
 
   const nameInputClasses = nameInputIsInvalid
@@ -36,7 +41,7 @@ const BasicForm = (props) => {
       </div>
       <div className={emailInputClasses}>
         <label htmlFor="name">E-Mail Address</label>
-        <EmailInput type="email" id="email" />
+        <EmailInput type="email" id="email" isInvalid={checkEmailValidation} />
       </div>
       <div className="form-actions">
         <button>Submit</button>
