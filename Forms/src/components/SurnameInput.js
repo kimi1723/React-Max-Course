@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const SurnameInput = ({ type, id, isInvalid, value }) => {
+const SurnameInput = ({ type, id, isInvalid, value, resetBoolean }) => {
   const [enteredSurname, setEnteredSurname] = useState("");
   const [enteredSurnameTouched, setEnteredSurnameTouched] = useState(false);
 
@@ -10,6 +10,11 @@ const SurnameInput = ({ type, id, isInvalid, value }) => {
   useEffect(() => {
     if (enteredSurnameIsValid && enteredSurnameTouched) {
       value(enteredSurname);
+    }
+
+    if (resetBoolean === true) {
+      setEnteredSurname("");
+      setEnteredSurnameTouched(false);
     }
   });
 

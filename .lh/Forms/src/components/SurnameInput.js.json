@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1694775342149,
@@ -16,6 +16,10 @@
                 {
                     "date": 1694775581609,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n         onChange={surnameInputChangeHandler}\r\n         value={enteredSurname}\r\n       />\r\n       {surnameInputIsInvalid && (\r\n-        <p classSurname=\"error-text\">Surname must not be empty.</p>\r\n+        <p className=\"error-text\">Surname must not be empty.</p>\r\n       )}\r\n     </>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1694777174186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { useState, useEffect } from \"react\";\r\n \r\n-const SurnameInput = ({ type, id, isInvalid, value }) => {\r\n+const SurnameInput = ({ type, id, isInvalid, value, resetBoolean }) => {\r\n   const [enteredSurname, setEnteredSurname] = useState(\"\");\r\n   const [enteredSurnameTouched, setEnteredSurnameTouched] = useState(false);\r\n \r\n   const enteredSurnameIsValid = enteredSurname.trim() !== \"\";\r\n@@ -10,8 +10,12 @@\n   useEffect(() => {\r\n     if (enteredSurnameIsValid && enteredSurnameTouched) {\r\n       value(enteredSurname);\r\n     }\r\n+\r\n+    if(resetBoolean === true) {\r\n+        setEnteredSurname('')\r\n+    }\r\n   });\r\n \r\n   const surnameInputChangeHandler = (e) => {\r\n     setEnteredSurname(e.target.value);\r\n"
                 }
             ],
             "date": 1694775342149,

@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 
-const NameInput = ({ type, id, isInvalid, value }) => {
+const NameInput = ({
+  type,
+  id,
+  isInvalid,
+  value,
+  resetBooleanValueHandler,
+  resetBoolean,
+}) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
@@ -10,6 +17,12 @@ const NameInput = ({ type, id, isInvalid, value }) => {
   useEffect(() => {
     if (enteredNameIsValid && enteredNameTouched) {
       value(enteredName);
+    }
+
+    if (resetBoolean === true) {
+      setEnteredName("");
+      setEnteredNameTouched(false);
+      resetBooleanValueHandler(false);
     }
   });
 

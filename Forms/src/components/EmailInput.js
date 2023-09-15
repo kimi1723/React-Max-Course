@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const EmailInput = ({ type, id, isInvalid, value }) => {
+const EmailInput = ({ type, id, isInvalid, value, resetBoolean }) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
 
@@ -13,6 +13,11 @@ const EmailInput = ({ type, id, isInvalid, value }) => {
     isInvalid(emailInputIsInvalid);
     if (enteredEmailIsValid && enteredEmailTouched) {
       value(enteredEmail);
+    }
+
+    if (resetBoolean === true) {
+      setEnteredEmail("");
+      setEnteredEmailTouched(false);
     }
   });
 

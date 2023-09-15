@@ -4,10 +4,21 @@ import NameInput from "./NameInput";
 import SurnameInput from "./SurnameInput";
 
 const BasicForm = (props) => {
+  const [nameInputIsInvalid, setNameInputIsInvalid] = useState(false);
+  const [emailInputIsInvalid, setEmailInputIsInvalid] = useState(false);
+  const [surnameInputIsInvalid, setSurnameInputIsInvalid] = useState(false);
+  const [resetBooleanValue, setResetBooleanValue] = useState(false);
+
   let nameValue, surnameValue, emailValue;
+
+  const resetBooleanValueHandler = (e) => {
+    setResetBooleanValue(false);
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    setResetBooleanValue(true);
 
     const data = {
       name: nameValue,
@@ -20,10 +31,6 @@ const BasicForm = (props) => {
     Surname: ${data.surname}
     E-mail: ${data.email}`);
   };
-
-  const [nameInputIsInvalid, setNameInputIsInvalid] = useState(false);
-  const [emailInputIsInvalid, setEmailInputIsInvalid] = useState(false);
-  const [surnameInputIsInvalid, setSurnameInputIsInvalid] = useState(false);
 
   const checkNameValidation = (isInvalid) => {
     setNameInputIsInvalid(isInvalid);
@@ -71,6 +78,8 @@ const BasicForm = (props) => {
             id="name"
             isInvalid={checkNameValidation}
             value={getNameValue}
+            resetBoolean={resetBooleanValue}
+            resetBooleanValueHandler={resetBooleanValueHandler}
           />
         </div>
         <div className={surnameInputClasses}>
@@ -80,6 +89,7 @@ const BasicForm = (props) => {
             id="surname"
             isInvalid={checkSurnameValidation}
             value={getSurnameValue}
+            resetBoolean={resetBooleanValue}
           />
         </div>
       </div>
@@ -90,6 +100,7 @@ const BasicForm = (props) => {
           id="email"
           isInvalid={checkEmailValidation}
           value={getEmailValue}
+          resetBoolean={resetBooleanValue}
         />
       </div>
       <div className="form-actions">
