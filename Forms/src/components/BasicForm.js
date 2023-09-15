@@ -1,10 +1,19 @@
 import InputBlock from "./Input";
+import useInput from "../hooks/use-input";
 
 const BasicForm = () => {
   let nameValue, surnameValue, emailValue;
+  // const { reset } = useInput();
+
+  const getNameValue = (e) => {
+    console.log(e + "  ez");
+    nameValue = e;
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    console.log(nameValue);
 
     if (
       nameValue === undefined ||
@@ -34,6 +43,7 @@ const BasicForm = () => {
           type="text"
           id="name"
           errorText={"Name must not be empty."}
+          getValue={getNameValue}
         />
 
         <InputBlock

@@ -1,13 +1,20 @@
 import useInput from "../hooks/use-input";
 
-const InputBlock = ({ validationFunction, label, type, id, errorText }) => {
+const InputBlock = ({
+  validationFunction,
+  label,
+  type,
+  id,
+  getValue,
+  errorText,
+}) => {
   const {
     value: enteredValue,
     isValid: enteredValueIsValid,
     hasError,
     valueChangeHandler,
     inputBlurHandler,
-  } = useInput(validationFunction);
+  } = useInput(validationFunction, getValue);
 
   const inputClasses = hasError ? "form-control invalid" : "form-control";
 
