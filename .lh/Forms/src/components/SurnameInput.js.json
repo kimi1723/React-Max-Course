@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Forms/src/components/SurnameInput.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1694775342149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1694775350336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   const [enteredSurname, setEnteredSurname] = useState(\"\");\r\n   const [enteredSurnameTouched, setEnteredSurnameTouched] = useState(false);\r\n \r\n   const enteredSurnameIsValid = enteredSurname.trim() !== \"\";\r\n-  const SurnameInputIsInvalid = !enteredSurnameIsValid && enteredSurnameTouched;\r\n+  const surnameInputIsInvalid = !enteredSurnameIsValid && enteredSurnameTouched;\r\n \r\n   useEffect(() => {\r\n     if (enteredSurnameIsValid && enteredSurnameTouched) {\r\n       value(enteredSurname);\r\n"
+                },
+                {
+                    "date": 1694775581609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n         onChange={surnameInputChangeHandler}\r\n         value={enteredSurname}\r\n       />\r\n       {surnameInputIsInvalid && (\r\n-        <p classSurname=\"error-text\">Surname must not be empty.</p>\r\n+        <p className=\"error-text\">Surname must not be empty.</p>\r\n       )}\r\n     </>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1694775342149,
+            "name": "Commit-0",
+            "content": "import { useState, useEffect } from \"react\";\r\n\r\nconst SurnameInput = ({ type, id, isInvalid, value }) => {\r\n  const [enteredSurname, setEnteredSurname] = useState(\"\");\r\n  const [enteredSurnameTouched, setEnteredSurnameTouched] = useState(false);\r\n\r\n  const enteredSurnameIsValid = enteredSurname.trim() !== \"\";\r\n  const SurnameInputIsInvalid = !enteredSurnameIsValid && enteredSurnameTouched;\r\n\r\n  useEffect(() => {\r\n    if (enteredSurnameIsValid && enteredSurnameTouched) {\r\n      value(enteredSurname);\r\n    }\r\n  });\r\n\r\n  const surnameInputChangeHandler = (e) => {\r\n    setEnteredSurname(e.target.value);\r\n    setEnteredSurnameTouched(true);\r\n    isInvalid(e.target.value.trim() === \"\");\r\n  };\r\n\r\n  const surnameInputBlurHandler = () => {\r\n    setEnteredSurnameTouched(true);\r\n    isInvalid(!enteredSurnameIsValid);\r\n  };\r\n\r\n  return (\r\n    <>\r\n      <input\r\n        type={type}\r\n        id={id}\r\n        onBlur={surnameInputBlurHandler}\r\n        onChange={surnameInputChangeHandler}\r\n        value={enteredSurname}\r\n      />\r\n      {SurnameInputIsInvalid && (\r\n        <p classSurname=\"error-text\">Surname must not be empty.</p>\r\n      )}\r\n    </>\r\n  );\r\n};\r\n\r\nexport default SurnameInput;\r\n"
+        }
+    ]
+}

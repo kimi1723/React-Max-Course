@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const NameInput = ({ type, id, isInvalid }) => {
+const NameInput = ({ type, id, isInvalid, value }) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
   const enteredNameIsValid = enteredName.trim() !== "";
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+
+  useEffect(() => {
+    if (enteredNameIsValid && enteredNameTouched) {
+      value(enteredName);
+    }
+  });
 
   const nameInputChangeHandler = (e) => {
     setEnteredName(e.target.value);
