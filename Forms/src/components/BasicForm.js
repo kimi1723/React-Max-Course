@@ -3,7 +3,7 @@ import EmailInput from "./EmailInput";
 import NameInput from "./NameInput";
 import SurnameInput from "./SurnameInput";
 
-const BasicForm = (props) => {
+const BasicForm = () => {
   const [nameInputIsInvalid, setNameInputIsInvalid] = useState(false);
   const [emailInputIsInvalid, setEmailInputIsInvalid] = useState(false);
   const [surnameInputIsInvalid, setSurnameInputIsInvalid] = useState(false);
@@ -18,7 +18,12 @@ const BasicForm = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    setResetBooleanValue(true);
+    if (
+      nameValue === undefined ||
+      surnameValue === undefined ||
+      emailValue === undefined
+    )
+      return;
 
     const data = {
       name: nameValue,
@@ -26,10 +31,12 @@ const BasicForm = (props) => {
       email: emailValue,
     };
 
-    console.log(`Form subbmited with this particular data: 
+    console.log(`Form subbmited with this particular data:
     Name: ${data.name}
     Surname: ${data.surname}
     E-mail: ${data.email}`);
+
+    setResetBooleanValue(true);
   };
 
   const checkNameValidation = (isInvalid) => {
