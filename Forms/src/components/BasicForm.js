@@ -3,19 +3,25 @@ import InputBlock from "./InputBlock";
 
 const BasicForm = () => {
   const [resetBoolean, setResetBoolean] = useState(false);
+  const [nameValue, setNameValue] = useState(undefined);
+  const [emailValue, setEmailValue] = useState(undefined);
+  const [surnameValue, setSurnameValue] = useState(undefined);
 
-  let nameValue, surnameValue, emailValue;
+  let formIsInvalid =
+    nameValue === undefined ||
+    surnameValue === undefined ||
+    emailValue === undefined;
 
   const getNameValue = (e) => {
-    nameValue = e;
+    setNameValue(e);
   };
 
   const getSurnameValue = (e) => {
-    surnameValue = e;
+    setSurnameValue(e);
   };
 
   const getEmailValue = (e) => {
-    emailValue = e;
+    setEmailValue(e);
   };
 
   const resetBooleanHandler = () => {
@@ -25,12 +31,7 @@ const BasicForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (
-      nameValue === undefined ||
-      surnameValue === undefined ||
-      emailValue === undefined
-    )
-      return;
+    if (formIsInvalid) return;
 
     const data = {
       name: nameValue,
@@ -89,7 +90,9 @@ const BasicForm = () => {
       />
 
       <div className="form-actions">
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={formIsInvalid}>
+          Submit
+        </button>
       </div>
     </form>
   );
