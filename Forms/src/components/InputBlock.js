@@ -14,6 +14,7 @@ const InputBlock = ({
     hasError,
     valueChangeHandler,
     inputBlurHandler,
+    reset,
   } = useInput(validationFunction, getValue);
 
   const inputClasses = hasError ? "form-control invalid" : "form-control";

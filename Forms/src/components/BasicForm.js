@@ -17,6 +17,8 @@ const BasicForm = () => {
     emailValue = e;
   };
 
+  const resetHandler = (e) => {};
+
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -40,7 +42,7 @@ const BasicForm = () => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form method="post" onSubmit={submitHandler}>
       <div className="control-group">
         <InputBlock
           validationFunction={(nameValue) => nameValue.trim() !== ""}
@@ -49,6 +51,7 @@ const BasicForm = () => {
           id="name"
           errorText={"Name must not be empty."}
           getValue={getNameValue}
+          reset={resetHandler}
         />
 
         <InputBlock
@@ -76,7 +79,7 @@ const BasicForm = () => {
       />
 
       <div className="form-actions">
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </div>
     </form>
   );

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "Forms/src/components/InputBlock.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1695028384807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1695028384807,
+            "name": "Commit-0",
+            "content": "import useInput from \"../hooks/use-input\";\r\n\r\nconst InputBlock = ({\r\n  validationFunction,\r\n  label,\r\n  type,\r\n  id,\r\n  getValue,\r\n  errorText,\r\n}) => {\r\n  const {\r\n    value: enteredValue,\r\n    isValid: enteredValueIsValid,\r\n    hasError,\r\n    valueChangeHandler,\r\n    inputBlurHandler,\r\n    reset\r\n  } = useInput(validationFunction, getValue);\r\n\r\n  const inputClasses = hasError ? \"form-control invalid\" : \"form-control\";\r\n\r\n  return (\r\n    <>\r\n      <div className={inputClasses}>\r\n        <label htmlFor={id}>{label}</label>\r\n        <input\r\n          type={type}\r\n          id={id}\r\n          onBlur={inputBlurHandler}\r\n          onChange={valueChangeHandler}\r\n          value={enteredValue}\r\n        />\r\n        {hasError && <p className=\"error-text\">{errorText}</p>}\r\n      </div>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default InputBlock;\r\n"
+        }
+    ]
+}
