@@ -1,4 +1,4 @@
-import InputBlock from "./Input";
+import InputBlock from "./InputBlock";
 import useInput from "../hooks/use-input";
 
 const BasicForm = () => {
@@ -6,14 +6,19 @@ const BasicForm = () => {
   // const { reset } = useInput();
 
   const getNameValue = (e) => {
-    console.log(e + "  ez");
     nameValue = e;
+  };
+
+  const getSurnameValue = (e) => {
+    surnameValue = e;
+  };
+
+  const getEmailValue = (e) => {
+    emailValue = e;
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    console.log(nameValue);
 
     if (
       nameValue === undefined ||
@@ -52,6 +57,7 @@ const BasicForm = () => {
           type="text"
           id="surname"
           errorText={"Surname must not be empty."}
+          getValue={getSurnameValue}
         />
       </div>
       <InputBlock
@@ -66,6 +72,7 @@ const BasicForm = () => {
         type="email"
         id="email"
         errorText={"Please enter a valid e-mail address."}
+        getValue={getEmailValue}
       />
 
       <div className="form-actions">

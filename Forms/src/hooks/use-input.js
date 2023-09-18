@@ -10,20 +10,17 @@ const useInput = (validateValue, getValue) => {
   const valueChangeHandler = (e) => {
     setEnteredValue(e.target.value);
     setIsTouched(true);
-    //  isInvalid(e.target.value.trim() === "");
+    getValue(e.target.value);
   };
 
   const inputBlurHandler = () => {
     setIsTouched(true);
-    //  isInvalid(!enteredNameIsValid);
   };
 
   const reset = () => {
     setEnteredValue("");
     setIsTouched(false);
   };
-
-  getValue = enteredValue;
 
   return {
     value: enteredValue,
