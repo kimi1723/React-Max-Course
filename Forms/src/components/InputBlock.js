@@ -7,15 +7,15 @@ const InputBlock = ({
   id,
   getValue,
   errorText,
+  resetValue,
+  resetResetBoolean,
 }) => {
   const {
     value: enteredValue,
-    isValid: enteredValueIsValid,
     hasError,
     valueChangeHandler,
     inputBlurHandler,
-    reset,
-  } = useInput(validationFunction, getValue);
+  } = useInput(validationFunction, getValue, resetValue, resetResetBoolean);
 
   const inputClasses = hasError ? "form-control invalid" : "form-control";
 

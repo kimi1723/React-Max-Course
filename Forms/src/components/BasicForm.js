@@ -1,9 +1,10 @@
+import { useState } from "react";
 import InputBlock from "./InputBlock";
-import useInput from "../hooks/use-input";
 
 const BasicForm = () => {
+  const [resetBoolean, setResetBoolean] = useState(false);
+
   let nameValue, surnameValue, emailValue;
-  // const { reset } = useInput();
 
   const getNameValue = (e) => {
     nameValue = e;
@@ -17,7 +18,9 @@ const BasicForm = () => {
     emailValue = e;
   };
 
-  const resetHandler = (e) => {};
+  const resetBooleanHandler = () => {
+    setResetBoolean(false);
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -36,9 +39,11 @@ const BasicForm = () => {
     };
 
     console.log(`Form subbmited with this particular data:
-    Name: ${data.name}
-    Surname: ${data.surname}
-    E-mail: ${data.email}`);
+      Name: ${data.name}
+      Surname: ${data.surname}
+      E-mail: ${data.email}`);
+
+    setResetBoolean(true);
   };
 
   return (
@@ -51,7 +56,8 @@ const BasicForm = () => {
           id="name"
           errorText={"Name must not be empty."}
           getValue={getNameValue}
-          reset={resetHandler}
+          resetValue={resetBoolean}
+          resetResetBoolean={resetBooleanHandler}
         />
 
         <InputBlock
@@ -61,6 +67,8 @@ const BasicForm = () => {
           id="surname"
           errorText={"Surname must not be empty."}
           getValue={getSurnameValue}
+          resetValue={resetBoolean}
+          resetResetBoolean={resetBooleanHandler}
         />
       </div>
       <InputBlock
@@ -76,6 +84,8 @@ const BasicForm = () => {
         id="email"
         errorText={"Please enter a valid e-mail address."}
         getValue={getEmailValue}
+        resetValue={resetBoolean}
+        resetResetBoolean={resetBooleanHandler}
       />
 
       <div className="form-actions">
