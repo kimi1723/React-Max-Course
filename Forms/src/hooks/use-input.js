@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const useInput = (validateValue, getValue, resetValue, resetResetBoolean) => {
   const [enteredValue, setEnteredValue] = useState("");
@@ -12,11 +12,19 @@ const useInput = (validateValue, getValue, resetValue, resetResetBoolean) => {
     setIsTouched(true);
   };
 
-  if (valueIsValid) {
-    getValue(enteredValue);
-  } else {
-    getValue(undefined);
-  }
+  useEffect(() => {
+    if (valueIsValid) {
+      getValue(enteredValue);
+    } else {
+      getValue(undefined);
+    }
+
+    if (resetValue && valueIsValid) {
+      resetResetBoolean();
+      reset();
+    }
+  }, [valueIsValid, enteredValue, resetValue]);
+
   const inputBlurHandler = () => {
     setIsTouched(true);
   };
@@ -25,11 +33,6 @@ const useInput = (validateValue, getValue, resetValue, resetResetBoolean) => {
     setEnteredValue("");
     setIsTouched(false);
   };
-
-  if (resetValue && valueIsValid) {
-    resetResetBoolean();
-    reset();
-  }
 
   return {
     value: enteredValue,
