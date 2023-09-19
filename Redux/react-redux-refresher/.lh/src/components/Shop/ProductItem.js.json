@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Shop/ProductItem.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695131618234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695131715554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,17 @@\n import Card from \"../UI/Card\";\n import classes from \"./ProductItem.module.css\";\n import { useDispatch } from \"react-redux\";\n+import {cartActions} from '../../store/cart-slice'\n \n const ProductItem = (props) => {\n   const { title, price, description } = props;\n+  const dispatch = useDispatch();\n \n+  const addItemToCartHandler = () => {\n+    dispatch()\n+  }\n+\n   return (\n     <li className={classes.item}>\n       <Card>\n         <header>\n"
+                },
+                {
+                    "date": 1695131756921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   const { title, price, description } = props;\n   const dispatch = useDispatch();\n \n   const addItemToCartHandler = () => {\n-    dispatch();\n+    dispatch(cartActions.increment);\n   };\n \n   return (\n     <li className={classes.item}>\n"
+                }
+            ],
+            "date": 1695131618234,
+            "name": "Commit-0",
+            "content": "import Card from '../UI/Card';\nimport classes from './ProductItem.module.css';\nimport {useDispatch} from 'react-redux'\n\nconst ProductItem = (props) => {\n  const { title, price, description } = props;\n\n  return (\n    <li className={classes.item}>\n      <Card>\n        <header>\n          <h3>{title}</h3>\n          <div className={classes.price}>${price.toFixed(2)}</div>\n        </header>\n        <p>{description}</p>\n        <div className={classes.actions}>\n          <button>Add to Cart</button>\n        </div>\n      </Card>\n    </li>\n  );\n};\n\nexport default ProductItem;\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Cart/CartButton.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695131021740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695131044821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,11 @@\n \n   const toggleCartHandler = () => {\n     dispatch(UIActions.UI.UI);\n   };\n+\n   return (\n-    <button className={classes.button}>\n+    <button className={classes.button} onClick={toggleCartHandler}>\n       <span>My Cart</span>\n       <span className={classes.badge}>1</span>\n     </button>\n   );\n"
+                },
+                {
+                    "date": 1695131187342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const CartButton = (props) => {\n   const dispatch = useDispatch();\n \n   const toggleCartHandler = () => {\n-    dispatch(UIActions.UI.UI);\n+    dispatch(UIActions.UI);\n   };\n \n   return (\n     <button className={classes.button} onClick={toggleCartHandler}>\n"
+                }
+            ],
+            "date": 1695131021740,
+            "name": "Commit-0",
+            "content": "import classes from './CartButton.module.css';\nimport { useDispatch } from 'react-redux';\nimport { UIActions } from '../../store/ui-slice';\n\nconst CartButton = (props) => {\n  const dispatch = useDispatch();\n\n  const toggleCartHandler = () => {\n    dispatch(UIActions.UI.UI)\n  }\n  return (\n    <button className={classes.button}>\n      <span>My Cart</span>\n      <span className={classes.badge}>1</span>\n    </button>\n  );\n};\n\nexport default CartButton;\n"
+        }
+    ]
+}
