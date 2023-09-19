@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Shop/Products.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695132841756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695132860325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n import classes from \"./Products.module.css\";\n \n const DUMMY_PRODUCTS = [\n   { id: \"p1\", price: 6, title: \"My first book\", description: \"The first book\" },\n+  { id: \"p1\", price: 12, title: \"My first book\", description: \"The second book\" },\n+  { id: \"p1\", price: 17, title: \"My first book\", description: \"The third bbook\" },\n ];\n \n const Products = (props) => {\n   return (\n"
+                },
+                {
+                    "date": 1695132866014,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,15 +3,15 @@\n \n const DUMMY_PRODUCTS = [\n   { id: \"p1\", price: 6, title: \"My first book\", description: \"The first book\" },\n   {\n-    id: \"p1\",\n+    id: \"p2\",\n     price: 12,\n     title: \"My first book\",\n     description: \"The second book\",\n   },\n   {\n-    id: \"p1\",\n+    id: \"p3\",\n     price: 17,\n     title: \"My first book\",\n     description: \"The third bbook\",\n   },\n"
+                }
+            ],
+            "date": 1695132841756,
+            "name": "Commit-0",
+            "content": "import ProductItem from './ProductItem';\nimport classes from './Products.module.css';\n\nconst DUMMY_PRODUCTS = [\n  {id: 'p1',\nprice: 6,\ntitle: 'My first book',\ndescription: 'The first book',}\n]\n\nconst Products = (props) => {\n  return (\n    <section className={classes.products}>\n      <h2>Buy your favorite products</h2>\n      <ul>\n        <ProductItem\n          title='Test'\n          price={6}\n          description='This is a first product - amazing!'\n        />\n      </ul>\n    </section>\n  );\n};\n\nexport default Products;\n"
+        }
+    ]
+}

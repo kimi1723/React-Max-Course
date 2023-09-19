@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1695132105179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695132126768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n   return (\n     <Layout>\n       {cartIsVisible && <Cart />}\n-      <Products />\n+      {!cartIsVisible && <Products />}\n     </Layout>\n   );\n }\n \n"
+                }
+            ],
+            "date": 1695132105179,
+            "name": "Commit-0",
+            "content": "import Cart from './components/Cart/Cart';\nimport Layout from './components/Layout/Layout';\nimport Products from './components/Shop/Products';\nimport { useSelector } from \"react-redux\";\n\nfunction App() {\n    const cartIsVisible = useSelector((state) => state.UI.cartIsVisible);\n\n  return (\n    <Layout>\n      {cartIsVisible && <Cart />}\n      <Products />\n    </Layout>\n  );\n}\n\nexport default App;\n"
+        }
+    ]
+}
