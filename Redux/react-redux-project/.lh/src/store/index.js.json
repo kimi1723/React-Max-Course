@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/store/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695110362120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695110388957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import redux from \"redux\";\r\n \r\n-const storeReducer = (state = { counter: 0 }, action) => {\r\n+const counterReducer = (state = { counter: 0 }, action) => {\r\n   if (state.type === \"increment\") {\r\n     return {\r\n       counter: state.counter + 1,\r\n     };\r\n@@ -9,7 +9,7 @@\n \r\n   return state;\r\n };\r\n \r\n-const store = redux.createStore(storeReducer);\r\n+const store = redux.createStore(counterReducer);\r\n \r\n store.getStore();\r\n"
+                },
+                {
+                    "date": 1695110416567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import redux from \"redux\";\r\n \r\n const counterReducer = (state = { counter: 0 }, action) => {\r\n-  if (state.type === \"increment\") {\r\n+  if (action.type === \"increment\") {\r\n     return {\r\n       counter: state.counter + 1,\r\n     };\r\n   }\r\n"
+                }
+            ],
+            "date": 1695110362120,
+            "name": "Commit-0",
+            "content": "import redux from 'redux';\r\n\r\nconst storeReducer = (state = {counter: 0}, action) => {\r\n    if(state.type === 'increment') {\r\n        return {\r\n            counter: state.counter + 1,\r\n        }\r\n    }\r\n\r\n    return state\r\n}\r\n\r\nconst store = redux.createStore(storeReducer);\r\n\r\nstore.getStore();\r\n"
+        }
+    ]
+}
