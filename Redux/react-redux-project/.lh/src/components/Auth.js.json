@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/components/Auth.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1695126430661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695126443693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { useDispatch, useSelector } from \"react-redux\";\n-import { authActions } from \"./store\";\n+import { authActions } from \"../store/index\";\n import classes from \"./Auth.module.css\";\n \n const Auth = () => {\n   const dispatch = useDispatch();\n"
+                },
+                {
+                    "date": 1695126481526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,12 @@\n const Auth = () => {\n   const dispatch = useDispatch();\n   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);\n \n+  const loginHandler = () => {\n+    dispatch(authActions.login())\n+  }\n+\n   return (\n     <main className={classes.auth}>\n       <section>\n         <form>\n@@ -17,9 +21,9 @@\n           <div className={classes.control}>\n             <label htmlFor=\"password\">Password</label>\n             <input type=\"password\" id=\"password\" />\n           </div>\n-          <button>Login</button>\n+          <button onClick={loginHandler}>Login</button>\n         </form>\n       </section>\n     </main>\n   );\n"
+                },
+                {
+                    "date": 1695126502390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n           <div className={classes.control}>\n             <label htmlFor=\"password\">Password</label>\n             <input type=\"password\" id=\"password\" />\n           </div>\n-          <button onClick={loginHandler}>Login</button>\n+          <button type=\"button\" onClick={loginHandler}>Login</button>\n         </form>\n       </section>\n     </main>\n   );\n"
+                },
+                {
+                    "date": 1695126517290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n const Auth = () => {\n   const dispatch = useDispatch();\n   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);\n \n-  const loginHandler = () => {\n+  const loginHandler = (e) => {\n+    e.preventDefault()\n     dispatch(authActions.login());\n   };\n \n   return (\n@@ -21,11 +22,9 @@\n           <div className={classes.control}>\n             <label htmlFor=\"password\">Password</label>\n             <input type=\"password\" id=\"password\" />\n           </div>\n-          <button type=\"button\" onClick={loginHandler}>\n-            Login\n-          </button>\n+          <button onClick={loginHandler}>Login</button>\n         </form>\n       </section>\n     </main>\n   );\n"
+                },
+                {
+                    "date": 1695126548322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n-import { useDispatch, useSelector } from \"react-redux\";\n+import { useDispatch } from \"react-redux\";\n import { authActions } from \"../store/index\";\n import classes from \"./Auth.module.css\";\n \n const Auth = () => {\n   const dispatch = useDispatch();\n-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);\n+ \n \n   const loginHandler = (e) => {\n     e.preventDefault();\n     dispatch(authActions.login());\n"
+                }
+            ],
+            "date": 1695126430661,
+            "name": "Commit-0",
+            "content": "import { useDispatch, useSelector } from \"react-redux\";\nimport { authActions } from \"./store\";\nimport classes from \"./Auth.module.css\";\n\nconst Auth = () => {\n  const dispatch = useDispatch();\n  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);\n\n  return (\n    <main className={classes.auth}>\n      <section>\n        <form>\n          <div className={classes.control}>\n            <label htmlFor=\"email\">Email</label>\n            <input type=\"email\" id=\"email\" />\n          </div>\n          <div className={classes.control}>\n            <label htmlFor=\"password\">Password</label>\n            <input type=\"password\" id=\"password\" />\n          </div>\n          <button>Login</button>\n        </form>\n      </section>\n    </main>\n  );\n};\n\nexport default Auth;\n"
+        }
+    ]
+}

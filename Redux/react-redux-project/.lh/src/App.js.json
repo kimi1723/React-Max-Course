@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1695125678910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695126161144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,13 @@\n-import Counter from './components/Counter';\n-import Header from './components/Header';\n-import Auth from './components/Auth'\n+import Counter from \"./components/Counter\";\n+import Header from \"./components/Header\";\n+import Auth from \"./components/Auth\";\n \n-\n function App() {\n   return (\n     <>\n-    <Header/>\n-    <Auth/>\n+      <Header />\n+      <Auth />\n       <Counter />\n     </>\n   );\n }\n"
+                },
+                {
+                    "date": 1695126284230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n+import {useDispatch, useSelector} from '@reduxjs/toolkit'\n import Counter from \"./components/Counter\";\n import Header from \"./components/Header\";\n import Auth from \"./components/Auth\";\n+import { authActions } from \"./store\";\n \n function App() {\n+  const \n   return (\n     <>\n       <Header />\n       <Auth />\n"
+                },
+                {
+                    "date": 1695126353902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,13 @@\n-import {useDispatch, useSelector} from '@reduxjs/toolkit'\n+import {useDispatch, useSelector} from 'react-redux'\n import Counter from \"./components/Counter\";\n import Header from \"./components/Header\";\n import Auth from \"./components/Auth\";\n import { authActions } from \"./store\";\n \n function App() {\n-  const \n+  const dispatch = useDispatch();\n+  const isLoggedIn = useSelector(state => state.auth.isAuthenticated)\n   return (\n     <>\n       <Header />\n       <Auth />\n"
+                },
+                {
+                    "date": 1695126561670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,13 @@\n-import { useDispatch, useSelector } from \"react-redux\";\n+import { useSelector } from \"react-redux\";\n import Counter from \"./components/Counter\";\n import Header from \"./components/Header\";\n import Auth from \"./components/Auth\";\n-import { authActions } from \"./store\";\n \n function App() {\n-  const dispatch = useDispatch();\n-  const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);\n+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);\n+  console.log(isAuthenticated);\n+\n   return (\n     <>\n       <Header />\n       <Auth />\n"
+                },
+                {
+                    "date": 1695126590326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { useSelector } from \"react-redux\";\n import Counter from \"./components/Counter\";\n import Header from \"./components/Header\";\n import Auth from \"./components/Auth\";\n+import UserProfile from \"./components/UserProfile\";\n \n function App() {\n   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);\n   console.log(isAuthenticated);\n"
+                }
+            ],
+            "date": 1695125678910,
+            "name": "Commit-0",
+            "content": "import Counter from './components/Counter';\nimport Header from './components/Header';\nimport Auth from './components/Auth'\n\n\nfunction App() {\n  return (\n    <>\n    <Header/>\n    <Auth/>\n      <Counter />\n    </>\n  );\n}\n\nexport default App;\n"
+        }
+    ]
+}
