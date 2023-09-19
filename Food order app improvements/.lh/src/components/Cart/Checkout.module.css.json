@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/Cart/Checkout.module.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1695039588509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695039679752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n .form {\r\n   margin: 1rem 0;\r\n   height: 19rem;\r\n-  overflow: auto;\r\n+  overflow: scroll;\r\n }\r\n \r\n .control {\r\n   margin-bottom: 0.5rem;\r\n"
+                }
+            ],
+            "date": 1695039588509,
+            "name": "Commit-0",
+            "content": ".form {\r\n  margin: 1rem 0;\r\n  height: 19rem;\r\n  overflow: auto;\r\n}\r\n\r\n.control {\r\n  margin-bottom: 0.5rem;\r\n}\r\n\r\n.control label {\r\n  font-weight: bold;\r\n  margin-bottom: 0.25rem;\r\n  display: block;\r\n}\r\n\r\n.control input {\r\n  font: inherit;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  width: 20rem;\r\n  max-width: 100%;\r\n}\r\n\r\n.actions {\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  gap: 1rem;\r\n}\r\n\r\n.actions button {\r\n  font: inherit;\r\n  color: #5a1a01;\r\n  cursor: pointer;\r\n  background-color: transparent;\r\n  border: none;\r\n  border-radius: 25px;\r\n  padding: 0.5rem 2rem; \r\n}\r\n\r\n.actions button:hover,\r\n.actions button:active {\r\n  background-color: #ffe6dc;\r\n}\r\n\r\n.actions .submit {\r\n  border: 1px solid #5a1a01;\r\n  background-color: #5a1a01;\r\n  color: white;\r\n}\r\n\r\n.actions .submit:hover,\r\n.actions .submit:active {\r\n  background-color: #7a2706;\r\n}\r\n\r\n.invalid label {\r\n  color: #ca3e51;\r\n}\r\n\r\n.invalid input {\r\n  border-color: #aa0b20;\r\n  background-color: #ffeff1;\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Meals/AvailableMeals.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695037426117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695037440344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n       const res = await fetch(URL);\n       const resData = await res.json();\n       console.log(resData);\n     };\n+    fetchMeals()\n   });\n \n   const mealsList = arr.map((meal) => (\n     <MealItem\n"
+                },
+                {
+                    "date": 1695037459353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n         \"https://food-order-app-238f5-default-rtdb.firebaseio.com/meals.json\";\n \n       const res = await fetch(URL);\n       const resData = await res.json();\n-      console.log(resData);\n+      console.log(resData.m1);\n     };\n \n     fetchMeals();\n   });\n"
+                }
+            ],
+            "date": 1695037426117,
+            "name": "Commit-0",
+            "content": "import { useEffect } from 'react';\nimport Card from '../UI/Card';\nimport MealItem from './MealItem/MealItem';\nimport classes from './AvailableMeals.module.css';\n\n\n\nconst AvailableMeals = () => {\n  const arr;\n  \n  useEffect(() => {\n    const fetchMeals = async () => {\n      const URL = \"https://food-order-app-238f5-default-rtdb.firebaseio.com/meals.json\";\n\n      const res = await fetch(URL)\n      const resData = await res.json()\n      console.log(resData);\n    }\n  })\n\n  const mealsList = arr.map((meal) => (\n    <MealItem\n      key={meal.id}\n      id={meal.id}\n      name={meal.name}\n      description={meal.description}\n      price={meal.price}\n    />\n  ));\n\n  return (\n    <section className={classes.meals}>\n      <Card>\n        <ul>{mealsList}</ul>\n      </Card>\n    </section>\n  );\n};\n\nexport default AvailableMeals;\n"
+        }
+    ]
+}

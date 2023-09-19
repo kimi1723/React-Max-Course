@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/store/cart-context.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1695048503436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1695048503436,
+            "name": "Commit-0",
+            "content": "import React from 'react';\n\nconst CartContext = React.createContext({\n  items: [],\n  totalAmount: 0,\n  addItem: (item) => {},\n  removeItem: (id) => {},\n  clearCart: () => {},\n});\n\nexport default CartContext;"
+        }
+    ]
+}

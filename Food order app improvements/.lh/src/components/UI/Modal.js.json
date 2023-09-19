@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/UI/Modal.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695036748473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695036754203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n-import { Fragment } from \"react\";\n-import ReactDOM from \"react-dom/client\";\n+import { Fragment } from 'react';\n+import ReactDOM from 'react-dom/client';\n \n-import classes from \"./Modal.module.css\";\n+import classes from './Modal.module.css';\n \n const Backdrop = (props) => {\n-  return <div className={classes.backdrop} onClick={props.onClose} />;\n+  return <div className={classes.backdrop} onClick={props.onClose}/>;\n };\n \n const ModalOverlay = (props) => {\n   return (\n@@ -14,21 +14,18 @@\n     </div>\n   );\n };\n \n-const portalElement = document.getElementById(\"overlays\");\n+const portalElement = document.getElementById('overlays');\n \n const Modal = (props) => {\n   return (\n     <Fragment>\n+      {ReactDOM.createPortal(<Backdrop onClose={props.onClose} />, portalElement)}\n       {ReactDOM.createPortal(\n-        <Backdrop onClose={props.onClose} />,\n+        <ModalOverlay>{props.children}</ModalOverlay>,\n         portalElement\n       )}\n-      {/* {ReactDOM.createPortal(\n-        <ModalOverlay>{props.children}</ModalOverlay>,\n-        portalElement\n-      )} */}\n     </Fragment>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1695036788530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { Fragment } from \"react\";\n import ReactDOM from \"react-dom/client\";\n+import { createPortal } from \"react-dom\";\n \n import classes from \"./Modal.module.css\";\n \n const Backdrop = (props) => {\n@@ -19,16 +20,16 @@\n \n const Modal = (props) => {\n   return (\n     <Fragment>\n-      {ReactDOM.createPortal(\n+      {createPortal(\n         <Backdrop onClose={props.onClose} />,\n         portalElement\n       )}\n-      {ReactDOM.createPortal(\n+      {/* {ReactDOM.createPortal(\n         <ModalOverlay>{props.children}</ModalOverlay>,\n         portalElement\n-      )}\n+      )} */}\n     </Fragment>\n   );\n };\n \n"
+                }
+            ],
+            "date": 1695036748473,
+            "name": "Commit-0",
+            "content": "import { Fragment } from 'react';\nimport ReactDOM from 'react-dom/client';\n\nimport classes from './Modal.module.css';\n\nconst Backdrop = (props) => {\n  return <div className={classes.backdrop} onClick={props.onClose}/>;\n};\n\nconst ModalOverlay = (props) => {\n  return (\n    <div className={classes.modal}>\n      <div className={classes.content}>{props.children}</div>\n    </div>\n  );\n};\n\nconst portalElement = document.getElementById('overlays');\n\nconst Modal = (props) => {\n  return (\n    <Fragment>\n      {ReactDOM.createPortal(<Backdrop onClose={props.onClose} />, portalElement)}\n      {/* {ReactDOM.createPortal(\n        <ModalOverlay>{props.children}</ModalOverlay>,\n        portalElement\n      )} */}\n    </Fragment>\n  );\n};\n\nexport default Modal;\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/Meals/AvailableMeals.module.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1695038067999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695038418286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,13 @@\n   text-align: center;\n   color: #fff;\n }\n \n+.meals-error {\n+  text-align: center;\n+  color: #f00;\n+}\n+\n @keyframes meals-appear {\n   from {\n     opacity: 0;\n     transform: translateY(3rem);\n"
+                }
+            ],
+            "date": 1695038067999,
+            "name": "Commit-0",
+            "content": ".meals {\n  max-width: 60rem;\n  width: 90%;\n  margin: 2rem auto;\n  animation: meals-appear 1s ease-out forwards;\n}\n\n.meals ul {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.meals-loading {\n  text-align: center;\n  color: #fff;\n}\n\n@keyframes meals-appear {\n  from {\n    opacity: 0;\n    transform: translateY(3rem);\n  }\n\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n"
+        }
+    ]
+}

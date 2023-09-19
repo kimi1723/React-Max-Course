@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Cart/Checkout.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695038878762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695038911918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,11 @@\n       <div className={classes.control}>\r\n         <label htmlFor=\"postal\">Postal code</label>\r\n         <input type=\"text\" id=\"postal\" />\r\n       </div>\r\n+      <div className={classes.control}>\r\n+        <label htmlFor=\"city\">City</label>\r\n+        <input type=\"text\" id=\"city\" />\r\n+      </div>\r\n     </form>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1695038949934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,8 @@\n       <div className={classes.control}>\r\n         <label htmlFor=\"city\">City</label>\r\n         <input type=\"text\" id=\"city\" />\r\n       </div>\r\n+      <button>Confirm</button>\r\n     </form>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1695038878761,
+            "name": "Commit-0",
+            "content": "import classes from './Checkout.module.css'\r\n\r\nconst Checkout = () => {\r\n    return (\r\n        <form>\r\n            <div className={classes.control}>\r\n                <label htmlFor='name'>Your name</label>\r\n                <input type=\"text\" id=\"name\"/>\r\n            </div>\r\n            <div className={classes.control}>\r\n                <label htmlFor='street'>Street</label>\r\n                <input type=\"text\" id=\"street\"/>\r\n            </div>\r\n            <div className={classes.control}>\r\n                <label htmlFor='postal'>Postal code</label>\r\n                <input type=\"text\" id=\"postal\"/>\r\n            </div>\r\n        </form>\r\n    )\r\n}"
+        }
+    ]
+}
