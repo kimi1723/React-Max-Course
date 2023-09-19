@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/store/auth.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1695127342824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695127362304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import {createSlice} from '@reduxjs/toolkit'\r\n+import { createSlice } from \"@reduxjs/toolkit\";\r\n \r\n const initialAuthState = {\r\n   isAuthenticated: false,\r\n };\r\n@@ -16,6 +16,5 @@\n     },\r\n   },\r\n });\r\n \r\n-\r\n-export default authSlice;\n\\ No newline at end of file\n+export default authSlice;\r\n"
+                }
+            ],
+            "date": 1695127342824,
+            "name": "Commit-0",
+            "content": "import {createSlice} from '@reduxjs/toolkit'\r\n\r\nconst initialAuthState = {\r\n  isAuthenticated: false,\r\n};\r\n\r\nconst authSlice = createSlice({\r\n  name: \"authentication\",\r\n  initialState: initialAuthState,\r\n  reducers: {\r\n    login(state) {\r\n      state.isAuthenticated = true;\r\n    },\r\n    logout(state) {\r\n      state.isAuthenticated = false;\r\n    },\r\n  },\r\n});\r\n\r\n\r\nexport default authSlice;"
+        }
+    ]
+}
