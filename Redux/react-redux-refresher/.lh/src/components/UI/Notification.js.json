@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/UI/Notification.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1695196015785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1695196015785,
+            "name": "Commit-0",
+            "content": "import classes from \"./Notification.module.css\";\r\n\r\nconst Notification = (props) => {\r\n  let specialClasses = \"\";\r\n\r\n  if (props.status === \"error\") {\r\n    specialClasses = classes.error;\r\n  }\r\n  if (props.status === \"success\") {\r\n    specialClasses = classes.success;\r\n  }\r\n\r\n  const cssClasses = `${classes.notification} ${specialClasses}`;\r\n\r\n  return (\r\n    <section className={cssClasses}>\r\n      <h2>{props.title}</h2>\r\n      <p>{props.message}</p>\r\n    </section>\r\n  );\r\n};\r\n\r\nexport default Notification;\r\n"
+        }
+    ]
+}

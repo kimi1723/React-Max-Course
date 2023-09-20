@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/UI/Notification.module.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1695196022735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1695196022735,
+            "name": "Commit-0",
+            "content": ".notification {\r\n  width: 100%;\r\n  height: 3rem;\r\n  background-color: #1a8ed1;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: 0.5rem 10%;\r\n  align-items: center;\r\n  color: white;\r\n}\r\n\r\n.notification h2,\r\n.notification p {\r\n  font-size: 1rem;\r\n  margin: 0;\r\n}\r\n\r\n.error {\r\n  background-color: #690000;\r\n}\r\n\r\n.success {\r\n  background-color: #1ad1b9;\r\n}"
+        }
+    ]
+}
