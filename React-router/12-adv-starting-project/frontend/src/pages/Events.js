@@ -1,25 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+
 import EventsList from '../components/EventsList';
 
-export const EventsPage = () => {
-	const [events, setEvents] = useState([]);
-
-	useEffect(() => {
-		const fetchEvents = async () => {
-			const URL = 'http://localhost:8080/events';
-			const response = await fetch(URL);
-			const data = await response.json();
-
-			setEvents(data.events);
-		};
-
-		fetchEvents();
-	});
+export function EventsPage() {
+	const events = useLoaderData();
 
 	return (
 		<>
-			<h1>Events</h1>
 			<EventsList events={events} />
 		</>
 	);
+}
+
+export const eventsLoader = async () => {
+	const response = await fetch('http://localhost:8080/events');
+
+	if (!response.ok) {
+	} else {
+		const resData = await response.json();
+		return resData.events;
+	}
 };
