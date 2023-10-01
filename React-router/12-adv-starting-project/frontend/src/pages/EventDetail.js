@@ -1,23 +1,10 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useRouteLoaderData, json } from 'react-router-dom';
 
 import EventItem from '../components/EventItem';
 
 export const EventDetailPage = () => {
-	const params = useParams();
-	const [event, setEvent] = useState([]);
-
-	useEffect(() => {
-		const fetchEvent = async () => {
-			const URL = 'http://localhost:8080/events';
-			const response = await fetch(URL);
-			const data = await response.json();
-			const event = data.events.find(event => event.id === params.id);
-
-			setEvent(event);
-		};
-		fetchEvent();
-	});
+	const data = useRouteLoaderData('event-detail');
+	const event = data.event;
 
 	return (
 		<>
@@ -25,4 +12,22 @@ export const EventDetailPage = () => {
 			<EventItem event={event} />
 		</>
 	);
+};
+
+export const loader = async ({ req, params }) => {
+	const id = params.id;
+	const URL = `http://localhost:8080/events/${id}`;
+
+	const res = await fetch(URL);
+
+	if (!res.ok) {
+		throw json(
+			{ message: 'Could not fetch details for selected event.' },
+			{
+				status: 500,
+			},
+		);
+	} else {
+		return res;
+	}
 };

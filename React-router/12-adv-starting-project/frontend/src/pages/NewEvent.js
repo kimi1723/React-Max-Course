@@ -1,3 +1,5 @@
+import EventForm from '../components/EventForm';
+
 export const NewEventPage = () => {
-	return <h1>NewEvent</h1>;
+	return <EventForm />;
 };
