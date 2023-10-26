@@ -1,12 +1,1 @@
-{
-  "events": [
-    {
-      "title": "A new event",
-      "image": "https://cdn.muenchen-p.de/fl_progressive,q_65/.imaging/stk/responsive/teaser300/dms/va-2016/muenchner-christkindlmarkt/christkindlmarkt-marienplat-logo-hp/document/christkindlmarkt-marienplat-logo-hp.jpg",
-      "date": "2022-10-01",
-      "description": "Some awesome event!",
-      "id": "2a42fcc4-ea21-4bdd-abf6-c40006dc66a9"
-    }
-  ],
-  "users": []
-}
+{"events":[{"title":"A new event","image":"https://cdn.muenchen-p.de/fl_progressive,q_65/.imaging/stk/responsive/teaser300/dms/va-2016/muenchner-christkindlmarkt/christkindlmarkt-marienplat-logo-hp/document/christkindlmarkt-marienplat-logo-hp.jpg","date":"2022-10-01","description":"Some awesome event!","id":"2a42fcc4-ea21-4bdd-abf6-c40006dc66a9"}],"users":[{"email":"am@gm.pl","password":"$2a$12$MFxpHQ2xtqoHWXpCpN3tueo9Kz4ZQzzCGEr.RbupkN2x0Qfn/skCa","id":"009f050f-8e4b-429a-9602-2f7ab969a13d"},{"email":"asd@gm.pl","password":"$2a$12$ao0ZkqbfsSvgGPymIhlqSOkMTnlSRgpZG2C9rAdc8slZUQFHPxxVe","id":"33f146ca-f71a-4a53-89f4-370754928a4e"},{"email":"em@gm.pl","password":"$2a$12$M2cEsRfiu2mKwH2UTE3Abu7CZkCuE2U5pnuBywD0AzMhlSl0YzNs2","id":"1f8beca3-bf6e-4a2b-be23-3e8c8b9c6b48"},{"email":"email@gm.pl","password":"$2a$12$UKAUea9I0QDPKHY7DIomzeZ884rzJlZ4ykgsZjYrQENk1ZtXffMkq","id":"b9cafcf8-f966-4606-91db-1c14d59947fe"}]}
